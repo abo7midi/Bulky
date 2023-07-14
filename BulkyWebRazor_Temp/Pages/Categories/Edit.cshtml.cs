@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BulkyWebRazor_Temp.Pages.Categories
 {
+    [BindProperties]
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _db;
@@ -27,7 +28,7 @@ namespace BulkyWebRazor_Temp.Pages.Categories
             {
                 _db.Categories.Update(category);
                 _db.SaveChanges();
-                TempData["Success"] = "Category Edited Successfully";
+                TempData["success"] = "Category Edited Successfully";
                 return RedirectToPage("Index");
             }
             return Page();
