@@ -20,9 +20,9 @@ namespace Bulky.Models
         public string? State { get; set; }
         public string? PostalCode { get; set; }
         //forign key relation
-        public int CompanyId { get; set; }
+        public int? CompanyId { get; set; }
 
-        [ForeignKey("CompanyID")]
+        [ForeignKey("CompanyId")]
         [ValidateNever]
         public Company Company { get; set; }
     }
