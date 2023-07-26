@@ -32,6 +32,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
                 Product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category"),
                 Count = 1,
                 ProductId = productId
+                
             };
             return View(shoppingCart);
         }
