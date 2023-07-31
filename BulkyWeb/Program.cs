@@ -24,6 +24,21 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = $"/Identity/Account/AccessDeneid";
 });
 
+builder.Services.AddAuthentication().AddFacebook(options =>
+{
+    options.AppId = "562226102611242";
+    options.AppSecret = "76d9f2234b5e89cd138157c640abaae4";
+});
+
+//adding session to services
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(100);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+}); 
+
 //get stripe section from appsettings.json file
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
@@ -47,6 +62,8 @@ app.UseRouting();
 //uathentication come before authorization
 app.UseAuthentication();
 app.UseAuthorization();
+//add session in our request pipline
+app.UseSession();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
