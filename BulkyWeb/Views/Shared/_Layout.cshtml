@@ -18,7 +18,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BulkyWeb</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/images/book.png" style="width:30px;" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,18 +44,18 @@
                                     <li> <a class="dropdown-item text-dark" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li> <a class="dropdown-item text-dark" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a></li>
+                                    <li> <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Register">Create User</a></li>
+                                    <li> <a class="dropdown-item text-dark" asp-area="Admin" asp-controller="User" asp-action="Index">Manage User</a></li>
 
                                 </ul>
                             </li>
                         }
                        
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="Customer" asp-controller="Cart" asp-action="Index">
-                                   @await Component.InvokeAsync("ShoppingCart")
-                                </a>
-                            </li>
-                       
-
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                                @await Component.InvokeAsync("ShoppingCart")
+                            </a>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -78,6 +80,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tiny.cloud/1/quw94ns7nq56w1mjpelpjnhoslqd8q3je7cogly0a8q50fy2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

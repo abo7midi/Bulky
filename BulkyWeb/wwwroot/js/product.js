@@ -22,6 +22,7 @@ function loadDataTable() {
                 },
                 "width": "25%"
             }
+            console.log("sss");
         ]
     });
 }

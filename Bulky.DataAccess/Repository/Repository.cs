@@ -56,7 +56,7 @@ namespace Bulky.DataAccess.Repository
             }
             if(!string.IsNullOrEmpty(includeProperties))
             {
-                foreach(var includeProp in includeProperties.Split(new char[','],StringSplitOptions.RemoveEmptyEntries))
+                foreach(var includeProp in includeProperties.Split(new char[] {','},StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(includeProp);
                 }

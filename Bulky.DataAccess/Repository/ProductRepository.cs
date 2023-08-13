@@ -31,10 +31,11 @@ namespace Bulky.DataAccess.Repository
                 prod.Price100 = product.Price100;
                 prod.Price50 = product.Price50;
                 prod.CategoryId = product.CategoryId;
-                if(product.ImageUrl != null)
-                {
-                    prod.ImageUrl = product.ImageUrl;
-                }
+                prod.ProductImages = product.ProductImages;
+                //if(product.ImageUrl != null)
+                //{
+                //    prod.ImageUrl = product.ImageUrl;
+                //}
             }
         }
     }
